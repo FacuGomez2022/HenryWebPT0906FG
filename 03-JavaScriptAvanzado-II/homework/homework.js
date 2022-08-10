@@ -32,13 +32,13 @@ return function callsCounter() {
 
 
 function cacheFunction(cb) {
-  /*
+  
   Ejercicio 2
-
-  Tu tarea aquí es lograr, mediante un closure, que cacheFunction 
-  actúe como una memoria caché para el callback que recibe por parámetro (cb); 
+/*
+  Tu tarea aquí es lograr, mediante un closure, que cacheFunction  
+   actúe como una memoria caché para el callback que recibe por parámetro (cb); 
   es decir, que "recuerde" el resultado de cada operación que hace, de manera que, 
-  al realizar una operación por segunda vez, se pueda obtener el resultado de esa "memoria" 
+    al realizar una operación por segunda vez, se pueda obtener el resultado de esa "memoria" 
   sin tener que efectuar otra vez cálculos que ya se hicieron anteriormente.
   cacheFunction debe retornar una función. Esta función debe aceptar un argumento (arg) e 
   invocar a cb con ese argumento; hecho eso, debe guardar el argumento junto con el 
@@ -47,27 +47,25 @@ function cacheFunction(cb) {
    la próxima vez que reciba el mismo argumento, no sea necesario volver a invocar a cb, 
    porque el resultado estará guardado en la "memoria caché".
   Ejemplo:
-  function square(n){
-    return n * n
+  function square(5){
+    return (5 * 5)
   }
   const squareCache = cacheFunction(square)
-  squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
-  squareCache(5)    // no volverá a invocar a square, 
-  simplemente buscará en la caché cuál es el resultado de square(5) y 
-  lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
+  squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará  squareCache(5)   
+   // no volverá a invocar a square,  simplemente buscará en la caché cuál es el resultado de square(5) y
+     lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
   */
 //cb(2) FUNCION --
  // cb(arg)
  // objeto[arg] = cb(arg)
     let objeto = {};
-    return function(arg){
+    return function (arg){
     if (objeto.hasOwnProperty(arg)){
       return objeto[arg];
     } else {
       objeto[arg] = cb(arg);
     } return objeto[arg]
   }
-}
 
 // Bind
 
