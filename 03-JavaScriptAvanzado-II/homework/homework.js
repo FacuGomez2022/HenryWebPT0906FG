@@ -33,8 +33,8 @@ return function callsCounter() {
 
 function cacheFunction(cb) {
   
-  Ejercicio 2
-/*
+/*  Ejercicio 2
+
   Tu tarea aquí es lograr, mediante un closure, que cacheFunction  
    actúe como una memoria caché para el callback que recibe por parámetro (cb); 
   es decir, que "recuerde" el resultado de cada operación que hace, de manera que, 
@@ -66,7 +66,7 @@ function cacheFunction(cb) {
       objeto[arg] = cb(arg);
     } return objeto[arg]
   }
-
+}
 // Bind
 
 var instructor = {

@@ -17,18 +17,14 @@ Crear un método `repeatify` que este disponible para _todos_ los objetos `Strin
 
 
 ```javascript
-var metodos = {
-  repeatify: function(param) {
-  	if (param<0){
-  		return "''"
-  	} else {
-  		var param = str	
-  		let i = 0
-  		for (i=0;i<(param+1);i++){
-  			return param+i
-  		}
-    return param+param+param
-	}
+this.String.prototype.repeatify = function (n) {
+  let palabra = this.toString()
+  let string = ""
+  if (n<0){
+    for (let i = 0; i < n , i++){
+  string += palabra
+  		return string
+    
   }
 }
 console.log('hola'.repeatify(3));   //holaholahola
