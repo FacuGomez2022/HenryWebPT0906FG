@@ -87,7 +87,7 @@ describe('Una linked list', function() {
     linkedList.add('one');
     linkedList.add('two');
     expect(linkedList.search(function(nodeValue) {
-      return nodeValue === 'two';
+      return nodeValue === 'two'; //true/false
     })).toBe('two');
   });
 
