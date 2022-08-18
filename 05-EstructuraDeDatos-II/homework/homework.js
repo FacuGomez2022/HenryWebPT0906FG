@@ -72,27 +72,27 @@ LinkedList.prototype.search = function(data){
 }
 
 
-let lista = new LinkedList()
+//let lista = new LinkedList()
 // lista.add('first')
 // lista.add('second')
 // console.log(lista.remove())
 // console.log(lista.remove())
-lista.add('one');
-lista.add('two');
-lista.add('three');
-lista.add('four');
+//lista.add('one');
+// lista.add('two');
+// lista.add('three');
+// lista.add('four');
 //expect(linkedList.search('two')).toBe('two');
 // expect(linkedList.search('sdd')).toBe(null);
 // expect(linkedList.search('one')).toBe('one');
 // expect(linkedList.search('four')).toBe('four');
-console.log(lista.search('four'))
-console.log(lista.search('five'))
-console.log(lista.search(function(nodeValue) {
-  if (nodeValue === 'six'){
-    return true
-  } else
-  return false; //true/false
-}))
+// console.log(lista.search('four'))
+// console.log(lista.search('five'))
+// console.log(lista.search(function(nodeValue) {
+//   if (nodeValue === 'six'){
+//     return true
+//   } else
+//   return false; //true/false
+// }))
 
 /*
 Implementar la clase HashTable.
