@@ -38,7 +38,7 @@ BinarySearchTree.prototype.insert = function (value) {
       this.left.insert(value);
   } else {
       this.left = new BinarySearchTree(value);
-  } 
+  }
   }
 };
 BinarySearchTree.prototype.contains = function (value) {
