@@ -80,12 +80,16 @@ function selectionSort(array) {
   // Tu código:
 
 
-  for (let j = 0 ; j < array.length; j--) {
-    for (let i = array.length; i>0 ; i--) {
-      if (array[i] > array[i-1]){
-        [array[i-1],array[i]] = [array[i],array[i-1]];
-        };
+  for (let i = 0 ; i < array.length; i++) {
+    let min = i
+      for (let j = i+1 ; j < array.length; j++) {
+      if (array[j] < array[min]){
+        min = j
+      };
     };
+    let aux = array[i];
+    array [i] = array [min];
+    array [min] = aux 
   };
   return array
 }
