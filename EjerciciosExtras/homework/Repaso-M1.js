@@ -17,8 +17,13 @@ const {
 var countArray = function(array) {
     // Tu código aca:
     
+    var suma = 0;
+    var arraycontado = array.flat(Infinity);
+    for (let i = 0; i < arraycontado.length ; i++){
+        suma += arraycontado[i];
+    };   
+    return suma;
 }
-
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
 // cualquier tipo de dato, determinar la cantidad de propiedades de objetos en cualquier nivel, ya sea el inicial
@@ -39,7 +44,19 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
-
+    var suma = 0;
+    console.log(Object.keys(obj));
+    var propiedades = Object.keys(obj)
+    console.log(suma);
+    for (let i in propiedades){
+        console.log(obj[propiedades[i]])
+        if (isNaN(propiedades[i])){
+        let sumaRecursive = countProps(obj[propiedades[i]])
+        suma += sumaRecursive + 1
+        };
+    };
+    console.log(suma)
+    return suma
 }
 
 
@@ -54,7 +71,24 @@ var countProps = function(obj) {
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
 
-}
+    var conteo = 0;
+    let current = this.head;
+    while (current !== null) {
+    if (typeof current.value === "string"){
+        current.value = 'Kirikocho'
+        conteo += 1
+        current.value = current.next.value
+      };
+      current = current.next 
+    }
+    return conteo
+};
+
+  let listOne = new LinkedList();
+  listOne.add(1);
+  listOne.add('2');
+  listOne.add(false);
+  listOne.add('Franco');
 
 
 // Implementar la función mergeQueues que a partir de dos queues recibidas por parametro
