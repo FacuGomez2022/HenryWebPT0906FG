@@ -48,7 +48,7 @@ var countProps = function(obj) {
     console.log(Object.keys(obj));
     var propiedades = Object.keys(obj)
     console.log(suma);
-    for (let i in propiedades){
+    for (let i = 0 ; i < propiedades.length ; i ++){
         console.log(obj[propiedades[i]])
         if (isNaN(propiedades[i])){
         let sumaRecursive = countProps(obj[propiedades[i]])
@@ -74,12 +74,11 @@ LinkedList.prototype.changeNotNumbers = function(){
     var conteo = 0;
     let current = this.head;
     while (current !== null) {
-    if (typeof current.value === "string"){
-        current.value = 'Kirikocho'
-        conteo += 1
-        current.value = current.next.value
+    if (isNaN(current.value)){
+        current.value = 'Kiricocho';
+        conteo ++;
       };
-      current = current.next 
+      current = current.next; 
     }
     return conteo
 };
@@ -101,8 +100,22 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
+    var newQ = new Queue();
+    console.log(queueOne.size());
+    console.log(queueTwo.size());
+    while (queueOne.size() !== 0 || queueTwo.size() !== 0) {
+      if (queueOne.size() !== 0){
+      newQ.enqueue(queueOne.dequeue());
+      };
+      if (queueTwo.size() !== 0){
+      newQ.enqueue(queueTwo.dequeue());
+      console.log(newQ);
+      };
+    };
+    console.log(newQ.size());
+    return newQ;
+  };
 
-}
 
 
 // Implementar la funcion closureMult que permita generar nuevas funciones que representen
@@ -116,15 +129,30 @@ var mergeQueues = function(queueOne, queueTwo) {
 
 var closureMult = function(multiplier) {
     // Tu código aca:
+    
 
 }
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
-BinarySearchTree.prototype.sum = function() {
-    // Tu código aca:
-
-}
+BinarySearchTree.prototype.sum = function (
+    arrayFlotante = []
+  ) {
+    if (this.left) {
+      arrayFlotante.push(this.left);
+    }
+    if (this.right){
+      arrayFlotante.push(this.right);
+    }
+    if (arrayFlotante.length > 0){
+      arrayFlotante.shift().sum(arrayFlotante);
+    };
+    var suma = 0
+    for (let i = 0 ; i<arrayFlotante.length; i++){
+        suma += arrayFlotante[i];
+    }
+    return suma;
+  }; 
 
 module.exports = {
     countArray,
