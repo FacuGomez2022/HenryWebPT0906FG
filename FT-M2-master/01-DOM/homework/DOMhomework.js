@@ -54,29 +54,54 @@ ToDo.prototype.completeToDo = function (){
 //    7) Agregar 'toDoText' como hijo de 'toDoShell'
 //    8) Devolver la variable toDoShell
 
+/*    Investigá sobre el tipo 'checkbox' del elemento input y realizar lo siguiente en la función 'buildToDo':
+        a) Crer un checkbox en la función 'buildToDo'
+        b) Asignarle como id a dicho checkbox el valor del index y quitar el id del index de toDoText
+        c) Agregarle al checkbox el 'click' event listener de completeToDo y quitárle el event listener a toDoText
+        d) Asignarle la clase 'completeCheckbox' al checkbox
+        e) Dentro del bloque 'if' de la función buildToDo, si es true, setear el atributo 'checked' en true en el checkbox
+        f) Agregar el checkbox sobre el elemento 'toDoShell'
+        TODOSHELL < TODOTEXT
+        CHECKBOX < TODOSHELL < TODOTEXT
+*/
 
 function buildToDo(todo, index) {
   // Tu código acá:
 
+  let box = document.createElement('input');
+  box.type = "checkbox";
+  box.setAttribute("id",index);
+  box.addEventListener('click',completeToDo)
+  box.className = 'completeCheckbox';
+
+
   let toDoShell = document.createElement('div');
 
-  toDoShell = class toDoShell{}
+  toDoShell.className = "toDoShell";
   
   let toDoText = document.createElement('span');
 
-  toDoText = ToDo(todo);
+  toDoText.innerHTML = todo.description;
+ 
 
-  toDoText.setAttribute("id",index)
+  //* toDoText.id = index
+
+
+  //   3) En la función 'buildToDo' agregar un 'click' event listener al elemento 'toDoText', pasándole
+//      esta función como callback ESTO ES DEL ULTIMO EJERCICIO. SOLO ES DE AYUDA PARA NO SCROLLEAR AL PEDO.
 
   if (todo.complete){
-    toDoText = new completeText;
+    box.setAttribute('checked', true)
+    toDoText.className = "completeText";
   };
 
-  document.toDoShell.appendChild(toDoText);
+  toDoShell.appendChild(box);
+  toDoShell.appendChild(toDoText);
   
   return toDoShell;
 
 }
+
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
 // Recibirá como parámetro un array de objetos ToDo
@@ -85,8 +110,8 @@ function buildToDo(todo, index) {
 
 function buildToDos(toDos) {
   // Tu código acá:
-  let arraybuild = toDos.map();
 
+  let arraybuild = toDos.map(buildToDo);
   return arraybuild
 }
 
@@ -103,8 +128,12 @@ function buildToDos(toDos) {
 function displayToDos() {
   // Tu código acá:
 
-}
+  let toDoContainer = document.getElementById('toDoContainer');
+  toDoContainer.innerHTML = "";
 
+  buildToDos(toDoItems).forEach(element => toDoContainer.appendChild(element))
+   
+  };
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
 // [NOTA: Algunas cuestiones a tener en cuenta sobre el elemento 'input' de HTML (Ya que 'toDoInput' es un input)
@@ -117,6 +146,11 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
+  
+ let asd = new ToDo (document.getElementById('toDoInput').value);
+ toDoItems.push (asd);
+ toDoInput.value = "";
+displayToDos()
 
 }
 
@@ -127,6 +161,10 @@ function addToDo() {
 
 // Tu código acá:
 
+let asd2 = document.getElementById('addButton')
+asd2.addEventListener('click',addToDo)
+
+
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
 // [NOTA: Algunas cuestiones a tener en cuenta
@@ -135,15 +173,17 @@ function addToDo() {
 // En este paso vamos a utilizarlo para encontrar el index del item que disparó el evento (Esta parte ya se
 // encuentra desarrollada pero está comentada dentro de la función por lo que va a ser necesario que la descomenten)]
 //   1) Utilizando el index suministrdo, llamar a 'completeToDo' (Recuerden que habíamos creado dcho método en el
-//      prototipo de la clase ToDo) sobre el elemento correspondiente del array toDoItems
+//*     prototipo de la clase ToDo) sobre el elemento correspondiente del ARRAY DE toDoItems !!!!!!
 //   2) Llamar a displayToDos para actualizar los elementos que se van a mostrar en pantalla
 //   3) En la función 'buildToDo' agregar un 'click' event listener al elemento 'toDoText', pasándole
 //      esta función como callback
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  // const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
+  toDoItems[index].completeToDo();
+  displayToDos();
 
 }
 
@@ -165,6 +205,7 @@ function completeToDo(event) {
 
 // Acá debes insertar la llamada a 'displayToDos'
 
+displayToDos()
 
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
 if (typeof module !== 'undefined') {
