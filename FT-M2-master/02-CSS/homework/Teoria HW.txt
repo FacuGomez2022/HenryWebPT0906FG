@@ -1,0 +1,15 @@
+Consigna:
+1. En un archivo de texto separado que debes crear, escribe explicaciones de los siguientes conceptos como si se lo estuvieras explicando a un niño de 12 años. Hacer esto te ayudará a descubrir rápidamente cualquier agujero en tu comprensión.
+
+	* Framework
+	* Preprocesador
+	* Responsive website
+
+Framework:
+Suponiendo que quiseramos hacer un videojuego de disparos como el CS, teniendo en cuenta que hay varios con la misma base, armas, mapas, campaña, podríamos tomar eso como base de Framework de CSS. Nosotros queremos hacer algo similar pero darle nuestro propio estilo. De esta manera, nos evitamos empezar desde 0, sino que iniciamos con la base ya hecha. 
+
+Preprocesador:
+Podríamos entenderlo como un traductor. Nosotros trabajamos desde el CSS por una parte y este se encarga de traducirlo a HTML como nosotros queremos que se vea. No siempre podemos trabajar de la misma manera según que lenguaje usamos, este se encarga de traducirlo.
+
+Resposive website:
+Con el resposive website podemos setear de que manera queremos que se vea nuestra página según el dispositivo donde la estemos viendo. Sea que es una pantalla grande o una pantalla chica teniendo en cuenta que cuando más chica la pantalla, más reducido se encontrará nuestro contenido.
