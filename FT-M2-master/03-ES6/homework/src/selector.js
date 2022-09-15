@@ -11,7 +11,7 @@ var traverseDomAndCollectElements = function (matchFunc, startEl) {
   var resultSet = [];
 
   if (typeof startEl === "undefined") {
-   startEl = document.body;
+    startEl = document.body;
    }
   // recorre el árbol del DOM y recolecta elementos que matchien en resultSet
   // usa matchFunc para identificar elementos que matchien
@@ -44,13 +44,7 @@ var selectorTypeMatcher = function (selector) {
   if (selector.includes(".")) {
     return "tag.class";
   }
-  if (
-    !selector.includes(".") &&
-    !(selector[0] === ".") &&
-    !(selector[0] === "#")
-  ) {
-    return "tag";
-  }
+  return "tag";
 };
 
 // NOTA SOBRE LA FUNCIÓN MATCH
@@ -79,7 +73,7 @@ var matchFunctionMaker = function (selector) {
       return false;
     } else if (selectorType === "tag.class") {
       let selector2 = selector.split(".");
-      if (info2.tagName.toLowerCase() === selector2[0].toLowerCase()) {
+      if (info2.tagName.toLowerCase() === selector2[0]) {
         let prueba1 = info2.className.split(" ");
         for (let i = 0; i < prueba1.length; i++) {
           if (prueba1[i] === selector2[1]) {
@@ -89,10 +83,16 @@ var matchFunctionMaker = function (selector) {
         }
       }
       return false;
-    } else if (selectorType === "tag") {
-      if (info2.tagName.toLowerCase() === selector.toLowerCase());
+    } 
+    else if (selectorType === "tag") {
+      if (info2.tagName.toLowerCase() === selector){
       return true;
     }
+    
+  };
+  // else if (selectorType === "tag") {
+  //   return (info2.tagName.toLowerCase() === selector)
+  // };
   };
   return matchFunction;
 };
