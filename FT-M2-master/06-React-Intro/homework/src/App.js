@@ -8,6 +8,13 @@ import data, { Cairns } from './data.js';
 function App() {
   return (
     <div className="App">
+      <hr />
+      <div>
+        <SearchBar
+          onSearch={(ciudad) => alert(ciudad)}
+        />
+      </div>
+      <hr />
       <div>
         <Card
           max={Cairns.main.temp_max}
@@ -24,11 +31,7 @@ function App() {
         />
       </div>
       <hr />
-      <div>
-        <SearchBar
-          onSearch={(ciudad) => alert(ciudad)}
-        />
-      </div>
+      
     </div>
   );
 }
